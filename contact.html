@@ -36,8 +36,8 @@
         </aside>
         <form class="form" id="form" novalidate>
           <h2 class="h2 form__full" data-split>Tell us about <em>it</em></h2>
-          <div class="field" data-reveal><label for="fName">Your name</label><input id="fName" name="name" autocomplete="name" required placeholder="Jane Doe" /></div>
-          <div class="field" data-reveal><label for="fEmail">Email</label><input id="fEmail" name="email" type="email" autocomplete="email" required placeholder="jane@company.com" /></div>
+          <div class="field" data-reveal><label for="fName">Your name</label><input id="fName" name="name" autocomplete="name" required maxlength="100" placeholder="Jane Doe" aria-describedby="eName" /><span class="field__err" id="eName" aria-live="polite"></span></div>
+          <div class="field" data-reveal><label for="fEmail">Email</label><input id="fEmail" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="jane@company.com" aria-describedby="eEmail" /><span class="field__err" id="eEmail" aria-live="polite"></span></div>
           <fieldset class="field form__full" data-reveal>
             <legend>What do you need?</legend>
             <div class="opt" style="margin-top:10px">
@@ -60,10 +60,20 @@
               <input type="radio" id="b5" name="budget" value="Not sure yet" /><label for="b5">Not sure yet</label>
             </div>
           </fieldset>
-          <div class="field form__full" data-reveal><label for="fMsg">The project</label><textarea id="fMsg" name="message" rows="4" placeholder="Goals, timeline, links, anything that helps."></textarea></div>
+          <div class="field form__full" data-reveal><label for="fMsg">The project</label><textarea id="fMsg" name="message" rows="4" maxlength="5000" placeholder="Goals, timeline, links, anything that helps."></textarea><span class="field__count mono" id="msgCount">0 / 5000</span></div>
+          <div class="field form__full" data-reveal>
+            <span class="field__label" id="lFiles">Attachments <span style="text-transform:none">(optional)</span></span>
+            <label class="drop" id="drop" for="fFiles" data-cursor="Attach">
+              <input id="fFiles" type="file" multiple aria-labelledby="lFiles" />
+              <span class="drop__icon" aria-hidden="true">+</span>
+              <span><b>Drop files here</b> or click to browse<br /><span class="mono">Any file type · up to 5 files · 10 MB each, 20 MB total</span></span>
+            </label>
+            <ul class="files" id="files" aria-live="polite"></ul>
+          </div>
+          <div class="hp-field" aria-hidden="true"><label for="fCompany">Company website</label><input id="fCompany" name="company_website" tabindex="-1" autocomplete="off" /></div>
           <div class="form__full" data-reveal style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
-            <button class="pill pill--red pill--lg" type="submit" data-magnetic><span>Send the brief</span> <span class="arrow">→</span></button>
-            <span class="mono" style="color:var(--muted)">Opens your email app with everything filled in.</span>
+            <button class="pill pill--red pill--lg" type="submit" id="send" data-magnetic><span class="send__label">Send the brief</span> <span class="arrow">→</span><span class="send__bar" aria-hidden="true"></span></button>
+            <span class="mono form__status" id="status" role="status" aria-live="polite">Goes straight to our inbox. We reply within a working day.</span>
           </div>
         </form>
       </div>

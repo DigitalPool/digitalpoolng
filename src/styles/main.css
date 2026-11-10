@@ -618,3 +618,32 @@ body[data-page='graphics'] .hdr { background: transparent; box-shadow: none; }
 .has-cursor .talk:hover ~ * {}
 .cursor[data-state='ball'] .cursor__ring::before { transform: scale(2.4); border-color: var(--red); border-style: dashed; }
 @media (min-width: 861px) { .hero__top > span:last-child { margin-right: 124px; } }
+
+/* ─── contact form: attachments, errors, sending state */
+.field__label { font-family: var(--f-mono); font-size: 12px; text-transform: uppercase; color: var(--muted); }
+.field__err { min-height: 0; font-family: var(--f-mono); font-size: 12px; color: var(--red-2); }
+.field.is-invalid input, .field.is-invalid textarea { border-color: var(--red); }
+.field__count { align-self: flex-end; color: var(--muted); font-size: 11px; }
+.drop { position: relative; display: flex; align-items: center; gap: 18px; padding: 22px 24px; border-radius: var(--r); border: 1.5px dashed var(--line-2); background: var(--paper); cursor: pointer; transition: border-color 0.3s, background 0.3s, transform 0.5s var(--ease); }
+.drop:hover, .drop.is-over { border-color: var(--red); background: var(--red-soft); }
+.drop.is-over { transform: scale(1.01); }
+.drop input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.drop:focus-within { outline: 2px solid var(--red); outline-offset: 3px; }
+.drop b { font-weight: 600; }
+.drop .mono { color: var(--muted); font-size: 11px; }
+.drop__icon { flex: none; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; background: var(--red); color: #fff; font-size: 24px; line-height: 1; transition: transform 0.6s var(--ease); }
+.drop:hover .drop__icon { transform: rotate(90deg); }
+.files { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.files li { display: inline-flex; align-items: center; gap: 10px; height: 38px; padding: 0 6px 0 14px; border-radius: 99px; background: var(--paper); box-shadow: inset 0 0 0 1px var(--line-2); font-size: 14px; max-width: 100%; }
+.files li span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 260px; }
+.files li small { font-family: var(--f-mono); font-size: 11px; color: var(--muted); }
+.files li button { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-size: 15px; color: var(--ink-2); }
+.files li button:hover { background: var(--red); color: #fff; }
+.hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form__status { color: var(--muted); max-width: 46ch; }
+.form__status.is-error { color: var(--red-2); }
+.send__bar { position: absolute; left: 0; bottom: 0; height: 3px; width: 0; background: #fff; opacity: 0.85; transition: width 0.2s; }
+#send[disabled] { cursor: progress; opacity: 0.9; }
+.form-done { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: flex-start; gap: 22px; padding: clamp(28px, 4vw, 56px); border-radius: 28px; background: var(--paper); box-shadow: inset 0 0 0 1px var(--line); }
+.form-done b { font-size: clamp(2.4rem, 5vw, 4.6rem); font-weight: 650; font-variation-settings: 'wdth' 114; letter-spacing: -0.05em; line-height: 0.95; }
+.form-done b em { font-family: var(--f-serif); font-style: italic; font-weight: 400; color: var(--red); letter-spacing: -0.02em; }

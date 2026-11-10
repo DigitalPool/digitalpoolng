@@ -43,3 +43,21 @@ npm run preview  # serve dist/ locally
 
 Cloudflare serves `/work` from `work.html` automatically, so the clean links work as is.
 # digitalpoolng
+
+## Contact form (sends briefs + attachments)
+The form posts to `/api/brief`, handled by `worker/index.js`. It validates and sanitises every field,
+then emails the brief (with up to 5 attachments, 10 MB each / 20 MB total) through Resend:
+from `website@digitalpoolng.com` to `hello@digitalpoolng.com`, with the visitor's email as reply-to.
+
+Email routing (hello@ to Gmail) and the Resend domain are already set up; no DNS changes are needed.
+The Worker reads the Resend key only from the `RESEND_API_KEY` secret in Cloudflare. Never put it in code or a committed file.
+
+Setup:
+1. Resend > API Keys > Create API key (permission: Sending access, domain: digitalpoolng.com). Copy it.
+2. Cloudflare > Workers & Pages > digitalpoolng > Settings > Variables and Secrets > Add: type **Secret**, name `RESEND_API_KEY`, paste the key, save.
+3. Push to GitHub; Cloudflare rebuilds and deploys.
+
+Optional variables: `BRIEF_TO` (default hello@digitalpoolng.com), `BRIEF_FROM` (default `DigitalPool website <website@digitalpoolng.com>`).
+Until the secret is set, the form tells visitors it couldn't send and offers a pre-filled email link to hello@digitalpoolng.com.
+
+Local testing: put `RESEND_API_KEY=...` in `.dev.vars` (git-ignored), run `npm run build && npx wrangler dev` (port 8787) and `npm run dev`; the dev server proxies `/api` to the Worker.

@@ -22,6 +22,8 @@ const pages = ['index', 'work', 'case', 'about', 'graphics', 'motion', 'contact'
 
 export default defineConfig({
   plugins: [partials()],
+  // the contact form posts to /api/brief; locally that's the Worker under `npx wrangler dev` (port 8787)
+  server: { proxy: { '/api': 'http://localhost:8787' } },
   build: {
     outDir: 'dist',
     assetsInlineLimit: 0,
