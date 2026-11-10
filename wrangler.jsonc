@@ -1,0 +1,14 @@
+// Cloudflare Workers config: serves the Vite build in ./dist as a static site.
+// Cloudflare runs `npm run build`, then `npx wrangler deploy` uploads ./dist.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "digitalpoolng",
+  "compatibility_date": "2025-09-01",
+  "assets": {
+    "directory": "./dist",
+    // /work serves work.html, /about serves about.html, etc.
+    "html_handling": "auto-trailing-slash",
+    // unknown URLs show our 404.html
+    "not_found_handling": "404-page"
+  }
+}
