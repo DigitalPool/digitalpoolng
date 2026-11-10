@@ -46,7 +46,7 @@ $('#railTrack').addEventListener('click', (e) => {
 });
 $('#motionStrip').addEventListener('click', (e) => {
   const c = e.target.closest('[data-m]'); if (!c) return;
-  openModal(motion.map((m) => ({ type: 'video', src: m.full, poster: m.poster, caption: `${m.title} · ${m.line}` })), +c.dataset.m);
+  openModal(motion.map((m) => ({ type: 'video', src: m.full, poster: m.poster, muted: true, loop: true, caption: `${m.title} · ${m.line}` })), +c.dataset.m);
 });
 const playReel = () => openModal([{ type: 'video', src: reel.src, poster: reel.poster, caption: 'DigitalPool showreel' }]);
 $('#reelPlay').addEventListener('click', playReel);

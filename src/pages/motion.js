@@ -14,7 +14,7 @@ hoverVideos($$('.mcard'));
 $$('.mcard').forEach((c) => gsap.from(c, { y: 80, autoAlpha: 0, scale: 0.96, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: c, start: 'top 96%', once: true } }));
 $('#mgrid').addEventListener('click', (e) => {
   const c = e.target.closest('[data-m]'); if (!c) return;
-  openModal(motion.map((m) => ({ type: 'video', src: m.full, poster: m.poster, caption: `${m.title} · ${m.line}` })), +c.dataset.m);
+  openModal(motion.map((m) => ({ type: 'video', src: m.full, poster: m.poster, muted: true, loop: true, caption: `${m.title} · ${m.line}` })), +c.dataset.m);
 });
 // logo & preloader loops: short, light, so they simply play while on screen
 $('#lgrid').innerHTML = logoMotion.map((l, i) => `
