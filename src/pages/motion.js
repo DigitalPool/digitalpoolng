@@ -1,6 +1,6 @@
-import { boot, gsap, $, $$, openModal } from '../core/app.js';
+import { boot, gsap, $, $$, openModal, observeVideos } from '../core/app.js';
 import { hoverVideos } from '../core/hover.js';
-import { motion, reel } from '../data.js';
+import { motion, reel, logoMotion } from '../data.js';
 
 $('#mCount').textContent = String(motion.length).padStart(2, '0');
 $('#mgrid').innerHTML = motion.map((m, i) => `
@@ -16,6 +16,19 @@ $('#mgrid').addEventListener('click', (e) => {
   const c = e.target.closest('[data-m]'); if (!c) return;
   openModal(motion.map((m) => ({ type: 'video', src: m.full, poster: m.poster, caption: `${m.title} · ${m.line}` })), +c.dataset.m);
 });
+// logo & preloader loops: short, light, so they simply play while on screen
+$('#lgrid').innerHTML = logoMotion.map((l, i) => `
+  <button class="lcard" type="button" data-l="${i}" data-cursor="View" style="background:${l.bg}">
+    <video src="${l.src}" poster="${l.poster}" muted loop playsinline preload="metadata" data-autoplay></video>
+    <span class="lcard__name mono">${l.title}</span>
+  </button>`).join('');
+observeVideos($('#lgrid'));
+$$('.lcard').forEach((c, i) => gsap.from(c, { y: 60, autoAlpha: 0, duration: 1.1, ease: 'expo.out', delay: (i % 4) * 0.06, scrollTrigger: { trigger: c, start: 'top 95%', once: true } }));
+$('#lgrid').addEventListener('click', (e) => {
+  const c = e.target.closest('[data-l]'); if (!c) return;
+  openModal(logoMotion.map((l) => ({ type: 'video', src: l.src, poster: l.poster, loop: true, muted: true, caption: l.title })), +c.dataset.l);
+});
+
 $('#playReel').addEventListener('click', () => openModal([{ type: 'video', src: reel.src, poster: reel.poster, caption: 'DigitalPool showreel' }]));
 
 boot({ page: 'motion' });

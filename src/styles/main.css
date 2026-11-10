@@ -227,7 +227,7 @@ a:hover .arrow, button:hover .arrow { transform: translateX(4px) rotate(-45deg);
 .ftr__grid a:hover { background-size: 100% 1px; color: var(--red); }
 .ftr__grid time { color: var(--red); margin-left: 6px; font-size: 13px; }
 .ftr__top { display: flex; justify-content: flex-end; align-items: flex-start; }
-.ftr__word { display: flex; justify-content: center; margin-top: clamp(40px, 7vw, 90px); font-size: 19.4vw; font-weight: 750; font-variation-settings: 'wdth' 125; letter-spacing: -0.075em; line-height: 0.74; white-space: nowrap; overflow: hidden; user-select: none; }
+.ftr__word { display: flex; justify-content: center; margin-top: clamp(40px, 7vw, 90px); font-size: 16.4vw; font-weight: 750; font-variation-settings: 'wdth' 125; letter-spacing: -0.075em; line-height: 0.74; white-space: nowrap; overflow: hidden; user-select: none; }
 .ftr__word span { display: block; padding-bottom: 0.02em; }
 .ftr__word span:last-child { color: var(--red); }
 .ftr__legal { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; padding-block: 22px; color: var(--muted); font-size: 11px; }
@@ -582,3 +582,13 @@ body[data-page='graphics'] .hdr { background: transparent; box-shadow: none; }
 
 #cTitle { visibility: hidden; }
 @media (hover: none) { .hp { display: none; } }
+
+/* logo & preloader motion grid */
+.lgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.lcard { position: relative; display: block; aspect-ratio: 1; border-radius: 18px; overflow: hidden; box-shadow: inset 0 0 0 1px var(--line); transition: transform 0.7s var(--ease); }
+.lcard video { width: 100%; height: 100%; object-fit: contain; padding: 8%; }
+.lcard__name { position: absolute; left: 14px; bottom: 12px; padding: 6px 10px; border-radius: 99px; background: rgba(255, 255, 255, 0.86); color: var(--ink); font-size: 11px; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); opacity: 0; transform: translateY(6px); transition: opacity 0.4s, transform 0.5s var(--ease); }
+.lcard:hover { transform: translateY(-6px) rotate(-1deg); }
+.lcard:hover .lcard__name { opacity: 1; transform: none; }
+@media (hover: none) { .lcard__name { opacity: 1; transform: none; } }
+@media (max-width: 860px) { .lgrid { grid-template-columns: repeat(2, 1fr); } }

@@ -285,3 +285,21 @@ export const motion = [
 }));
 
 export const reel = { src: '/assets/video/reel.mp4', small: '/assets/video/reel-sm.mp4', poster: '/assets/video/reel-poster.jpg' };
+
+// Logo & preloader animations (Motion page). Files: /public/assets/logo-motion/<id>.mp4 and .jpg
+// `show: false` hides an item. The last two came from files named after other designers
+// (gabrielwalls, iamc95); switch them on only if DigitalPool made them.
+export const logoMotion = [
+  { id: 'vgpa-lion', title: 'VGPA Lion', bg: '#ffffff', show: true },
+  { id: 'borebon', title: 'Borebon Studios', bg: '#000000', show: true },
+  { id: 'andmex', title: 'AndMex', bg: '#ffffff', show: true },
+  { id: 'wts', title: 'WTS', bg: '#001929', show: true },
+  { id: 'sailor', title: 'Sailor', bg: '#ffffff', show: true },
+  { id: 'scxale', title: 'scxale', bg: '#000000', show: true },
+  { id: 'loading-cat', title: 'Loading cat', bg: '#ffffff', show: true },
+  { id: 'hex-mark', title: 'Hex mark', bg: '#fffdff', show: true },
+  { id: 'nodo-infinito', title: 'Nodo Infinito', bg: '#000000', show: false },
+  { id: 'bow-loader', title: 'Bow loader', bg: '#ffffff', show: false },
+]
+  .filter((l) => l.show)
+  .map((l) => ({ ...l, src: `/assets/logo-motion/${l.id}.mp4`, poster: `/assets/logo-motion/${l.id}.jpg` }));
