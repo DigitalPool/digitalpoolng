@@ -70,9 +70,9 @@ $('#filters').addEventListener('click', (e) => {
   markNav(c.dataset.f);
 });
 
-// header highlight: Web / Mobile when that filter is on, otherwise Work
+// header highlight: Web & Mobile when that filter is on, otherwise Work
 function markNav(id) {
-  const key = ['web', 'mobile'].includes(id) ? id : 'work';
+  const key = id === 'web-mobile' ? id : 'work';
   document.querySelectorAll('.hdr__nav [data-nav]').forEach((a) => a.classList.toggle('is-active', a.dataset.nav === key));
 }
 
@@ -84,8 +84,8 @@ $$('[data-view]').forEach((b) => b.addEventListener('click', () => {
   gsap.fromTo(list ? '#list .wl__row' : '.card', { y: 40, autoAlpha: 0 }, { y: 0, autoAlpha: 1, stagger: 0.05, duration: 0.9, ease: 'expo.out' });
 }));
 
-// open with the filter from the URL (e.g. /work?f=mobile from the header)
+// open with the filter from the URL (e.g. /work?f=web-mobile from the header)
 const initial = new URLSearchParams(location.search).get('f');
 const startFilter = filters.some((f) => f.id === initial) ? initial : 'all';
-boot({ page: ['web', 'mobile'].includes(startFilter) ? startFilter : 'work' });
+boot({ page: startFilter === 'web-mobile' ? startFilter : 'work' });
 if (startFilter !== 'all') applyFilter(startFilter);

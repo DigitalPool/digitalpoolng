@@ -20,16 +20,16 @@ export const projects = [
   {
     slug: 'graffiy',
     title: 'Graffiy',
-    client: 'Our product',
+    client: 'Graffiy',
     kind: 'AI design SaaS',
-    filter: 'product',
+    filter: 'saas',
     platform: 'web',
     color: '#5b3df5',
     line: 'An AI design editor that turns a research abstract into an editable, journal-ready figure.',
     intro:
-      'Graffiy is our own product. Researchers paste a topic or an abstract and get back an editable graphical abstract, conference poster, slide deck or animated chart, then export it in journal-ready formats. We designed and engineered it end to end, from the canvas engine to payments.',
+      'Graffiy is an AI design platform for scientists. Researchers paste a topic or an abstract and get back an editable graphical abstract, conference poster, slide deck or animated chart, then export it in journal-ready formats. We designed and engineered it end to end, from the canvas engine to payments.',
     challenge:
-      'Scientists spend days in tools that were never built for them. The brief we set ourselves: make a figure that would take an afternoon take a minute, without taking control away from the researcher.',
+      'Scientists spend days in tools that were never built for them. The brief: make a figure that would take an afternoon take a minute, without taking control away from the researcher.',
     approach:
       'AI generates a structured JSON layout, and our canvas engine renders it as real, editable design layers rather than a flat image. Everything stays movable, restylable and exportable.',
     highlights: [
@@ -109,7 +109,7 @@ export const projects = [
   {
     slug: 'islamly',
     title: 'Islamly',
-    client: 'Our product',
+    client: 'Islamly',
     kind: 'iOS app',
     filter: 'app',
     platform: 'mobile',
@@ -227,13 +227,11 @@ export const projects = [
 ];
 
 // Work page filter chips. `/work?f=<id>` opens the page with that chip selected
-// (the header's Web and Mobile links use this).
+// (the header's Web & Mobile link uses this).
 export const filters = [
   { id: 'all', label: 'All', match: () => true },
-  { id: 'web', label: 'Web', match: (p) => p.platform === 'web' },
-  { id: 'mobile', label: 'Mobile', match: (p) => p.platform === 'mobile' },
+  { id: 'web-mobile', label: 'Web & Mobile', match: (p) => p.platform === 'web' || p.platform === 'mobile' },
   { id: 'commerce', label: 'Commerce', match: (p) => p.filter === 'commerce' },
-  { id: 'product', label: 'Our products', match: (p) => p.client === 'Our product' },
 ];
 
 export const services = [
