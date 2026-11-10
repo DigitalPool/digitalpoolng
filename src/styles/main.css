@@ -592,3 +592,29 @@ body[data-page='graphics'] .hdr { background: transparent; box-shadow: none; }
 .lcard:hover .lcard__name { opacity: 1; transform: none; }
 @media (hover: none) { .lcard__name { opacity: 1; transform: none; } }
 @media (max-width: 860px) { .lgrid { grid-template-columns: repeat(2, 1fr); } }
+
+/* ─── talk ball (top right): 3D pool ball + orbiting text */
+.talk { position: fixed; top: 2px; right: calc(var(--gut) - 16px); z-index: 62; width: 112px; height: 112px; display: grid; place-items: center; touch-action: none; transition: opacity 0.5s, transform 0.8s var(--ease); }
+.talk > * { grid-area: 1 / 1; }
+.talk__disc { width: 94px; height: 94px; border-radius: 50%; background: color-mix(in srgb, var(--paper) 72%, transparent); backdrop-filter: blur(10px) saturate(1.4); -webkit-backdrop-filter: blur(10px) saturate(1.4); box-shadow: inset 0 0 0 1px var(--line), 0 10px 30px -12px rgba(13, 13, 15, 0.25); transition: transform 0.8s var(--ease); }
+.talk__ring { width: 100%; height: 100%; overflow: visible; will-change: transform; pointer-events: none; }
+.talk__ring text { font-family: var(--f-mono); font-size: 9.6px; letter-spacing: 0.02em; font-weight: 500; fill: var(--ink); text-transform: uppercase; }
+.talk__ring tspan { fill: var(--red); }
+.talk__ball { width: 64px; height: 64px; filter: drop-shadow(0 7px 8px rgba(120, 10, 20, 0.28)); cursor: grab; }
+.talk:active .talk__ball { cursor: grabbing; }
+.talk__fallback { width: 40px; height: 40px; opacity: 0; pointer-events: none; }
+.talk.is-fallback .talk__fallback { opacity: 1; }
+.talk.is-fallback .talk__ball { display: none; }
+.talk__live { width: 9px; height: 9px; border-radius: 50%; background: #1fbf6a; justify-self: end; align-self: start; margin: 18px 18px 0 0; box-shadow: 0 0 0 3px var(--bg); animation: pulse 2s infinite; }
+.talk:hover .talk__disc { transform: scale(1.08); }
+.menu-open .talk { opacity: 0; pointer-events: none; }
+.is-first .talk, .is-tx .talk { opacity: 0; }
+@media (max-width: 860px) {
+  .talk { width: 58px; height: 58px; top: 5px; right: calc(var(--gut) + 52px); }
+  .talk__ring, .talk__disc { display: none; }
+  .talk__ball { width: 48px; height: 48px; }
+  .talk__live { margin: 4px 4px 0 0; width: 8px; height: 8px; }
+}
+.has-cursor .talk:hover ~ * {}
+.cursor[data-state='ball'] .cursor__ring::before { transform: scale(2.4); border-color: var(--red); border-style: dashed; }
+@media (min-width: 861px) { .hero__top > span:last-child { margin-right: 124px; } }

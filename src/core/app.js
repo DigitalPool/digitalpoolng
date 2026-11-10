@@ -64,6 +64,7 @@ function initCursor() {
   document.addEventListener('pointerover', (e) => {
     const t = e.target.closest('[data-cursor], a, button, [role="button"], input, textarea, label');
     if (!t) return setCursor('');
+    if (t.classList.contains('talk')) return setCursor('ball');
     if (t.dataset.cursor) return setCursor('label', t.dataset.cursor);
     if (t.matches('input, textarea')) return setCursor('text');
     setCursor('link');
@@ -346,6 +347,16 @@ export const observeVideos = (root = document) => {
   $$('video[data-autoplay]', root).forEach((v) => io.observe(v));
 };
 
+// ─── the talk ball (top-right 3D pool ball)
+function initTalk() {
+  const el = $('.talk'); if (!el) return;
+  const canvas = $('.talk__ball', el);
+  import('../gl/ball.js').then(({ createBall }) => {
+    const b = createBall(canvas, { ring: $('.talk__ring', el), getScrollVelocity: () => (lenis ? lenis.velocity : 0), reduceMotion });
+    if (!b) el.classList.add('is-fallback');
+  }).catch(() => el.classList.add('is-fallback'));
+}
+
 // ─── boot
 /**
  * @param {object} o
@@ -360,6 +371,7 @@ export async function boot({ page, tasks = [], onEnter } = {}) {
   initCursor();
   initModal();
   initMisc();
+  initTalk();
   await document.fonts.ready.catch(() => {});
   initReveals();
   const first = html.classList.contains('is-first');

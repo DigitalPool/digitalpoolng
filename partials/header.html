@@ -11,13 +11,22 @@
     <a href="/motion" data-nav="motion"><span data-text="Motion">Motion</span></a>
   </nav>
   <div class="hdr__right">
-    <span class="hdr__status mono"><i></i>Open for projects</span>
-    <a class="pill pill--red" href="/contact" data-magnetic data-nav="contact"><span>Let's talk</span></a>
     <button class="hdr__burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
       <span></span><span></span>
     </button>
   </div>
 </header>
+
+<!-- The talk ball: a 3D pool ball you can flick; click it to get in touch -->
+<a class="talk" href="/contact" aria-label="Let's talk: open the contact page" title="Flick me, or click to talk">
+  <span class="talk__disc" aria-hidden="true"></span>
+  <svg class="talk__ring" viewBox="0 0 100 100" aria-hidden="true">
+    <defs><path id="talkPath" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0" /></defs>
+    <text><textPath href="#talkPath" textLength="249" lengthAdjust="spacing">LET'S TALK <tspan>✦</tspan> OPEN FOR PROJECTS <tspan>✦</tspan> </textPath></text>
+  </svg>
+  <canvas class="talk__ball" aria-hidden="true"></canvas>
+  <img class="talk__fallback" src="/assets/brand/logo.png" alt="" width="40" height="40" />
+</a>
 
 <div class="menu" id="menu" aria-hidden="true">
   <div class="menu__bg"></div>
