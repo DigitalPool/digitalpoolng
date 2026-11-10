@@ -5,7 +5,7 @@
 
 export const site = {
   name: 'DigitalPool',
-  email: 'digitalpoolng@gmail.com',
+  email: 'hello@digitalpoolng.com',
   fiverr: '', // paste your Fiverr agency URL to show a "Hire us on Fiverr" link on the contact page
   flickr: 'https://www.flickr.com/photos/186664939@N06/',
   socials: [

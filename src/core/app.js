@@ -264,6 +264,8 @@ export function marquee(el) {
   track.append(...[...track.children].map((n) => n.cloneNode(true)));
   const dir = el.dataset.marquee === 'right' ? 1 : -1;
   let x = 0, boost = 0, skew = 0;
+  // position and skew both go through GSAP so neither overwrites the other's transform
+  const setX = gsap.quickSetter(track, 'x', 'px');
   const setSkew = gsap.quickSetter(track, 'skewX', 'deg');
   gsap.ticker.add((t, dt) => {
     const v = lenis ? lenis.velocity : 0;
@@ -271,7 +273,7 @@ export function marquee(el) {
     x += dir * (0.045 + boost * 0.02) * dt;
     const half = track.scrollWidth / 2;
     if (half) { if (x <= -half) x += half; if (x > 0) x -= half; }
-    track.style.transform = `translate3d(${x}px,0,0)`;
+    setX(x);
     skew += ((lenis ? -v * 0.25 : 0) - skew) * 0.1;
     setSkew(Math.max(-12, Math.min(12, skew)));
   });
