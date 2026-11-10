@@ -647,3 +647,54 @@ body[data-page='graphics'] .hdr { background: transparent; box-shadow: none; }
 .form-done { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: flex-start; gap: 22px; padding: clamp(28px, 4vw, 56px); border-radius: 28px; background: var(--paper); box-shadow: inset 0 0 0 1px var(--line); }
 .form-done b { font-size: clamp(2.4rem, 5vw, 4.6rem); font-weight: 650; font-variation-settings: 'wdth' 114; letter-spacing: -0.05em; line-height: 0.95; }
 .form-done b em { font-family: var(--f-serif); font-style: italic; font-weight: 400; color: var(--red); letter-spacing: -0.02em; }
+
+/* ─── header "Contact us" button */
+@property --cta-a { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+.hdr__nav a.hdr__cta {
+  margin-left: 6px; padding: 0 14px 0 12px; display: flex; align-items: center; gap: 9px;
+  background: var(--red); color: #fff; overflow: visible; isolation: isolate;
+  box-shadow: 0 8px 22px -10px rgba(232, 50, 61, 0.85);
+  transition: box-shadow 0.5s var(--ease), transform 0.6s var(--ease);
+}
+/* a bright arc that keeps orbiting the button's border */
+.hdr__cta::before {
+  content: ''; position: absolute; inset: -3px; z-index: -1; border-radius: inherit; padding: 2px;
+  background: conic-gradient(from var(--cta-a), transparent 0 58%, rgba(232, 50, 61, 0.15) 64%, #ff8f96 78%, #ffffff 86%, transparent 94%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  animation: ctaSpin 3.2s linear infinite;
+}
+@keyframes ctaSpin { to { --cta-a: 360deg; } }
+/* ink fill that rises from below on hover */
+.hdr__cta::after {
+  content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: var(--ink);
+  clip-path: circle(0% at 50% 130%); transition: clip-path 0.7s var(--ease);
+}
+.hdr__cta:hover::after, .hdr__cta:focus-visible::after { clip-path: circle(140% at 50% 130%); }
+.hdr__cta:hover { box-shadow: 0 12px 28px -10px rgba(13, 13, 15, 0.55); }
+.hdr__cta-txt { display: block; height: 36px; overflow: hidden; }
+.hdr__nav a.hdr__cta span span::after { color: #fff; }
+.hdr__cta-dot { position: relative; width: 7px; height: 7px; flex: none; border-radius: 50%; background: #fff; }
+.hdr__cta-dot::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: #fff; animation: ctaPing 1.8s var(--ease) infinite; }
+@keyframes ctaPing { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(3.2); opacity: 0; } }
+.hdr__cta-arrow { display: inline-block; font-weight: 400; font-size: 15px; line-height: 1; transition: transform 0.6s var(--ease); }
+.hdr__cta:hover .hdr__cta-arrow { transform: rotate(45deg) scale(1.15); }
+.hdr__nav a.hdr__cta.is-active { background: var(--red); }
+@media (prefers-reduced-motion: reduce) { .hdr__cta::before, .hdr__cta-dot::after { animation: none; } }
+
+/* mobile menu: Contact us stands out */
+.menu__nav a.menu__cta { color: var(--red); }
+.menu__nav a.menu__cta em { font-family: var(--f-serif); font-style: italic; font-weight: 400; font-size: 0.8em; }
+
+/* the longer nav needs room: hand over to the menu button below 1180px */
+@media (max-width: 1180px) {
+  .hdr__nav { display: none; }
+  .hdr__burger { display: block; }
+}
+@media (min-width: 861px) and (max-width: 1180px) {
+  .talk { right: calc(var(--gut) + 42px); }
+}
+.hdr__nav a.hdr__cta:hover .hdr__cta-txt { transform: none; } /* only the inner label rolls */
+.grid.is-filtered .card { grid-column: span 6 !important; margin-top: 0 !important; }
+.grid.is-filtered .card .card__media { aspect-ratio: 4 / 3 !important; }
+@media (max-width: 860px) { .grid.is-filtered .card { grid-column: 1 !important; } }

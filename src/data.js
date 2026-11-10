@@ -23,6 +23,7 @@ export const projects = [
     client: 'Our product',
     kind: 'AI design SaaS',
     filter: 'product',
+    platform: 'web',
     color: '#5b3df5',
     line: 'An AI design editor that turns a research abstract into an editable, journal-ready figure.',
     intro:
@@ -51,6 +52,7 @@ export const projects = [
     client: 'Castillo Cigars',
     kind: '3D brand experience',
     filter: 'web',
+    platform: 'web',
     color: '#c8742f',
     dark: true,
     line: 'A tactile, light-to-enter site for two Honduran cigar blends from the Jamastrán Valley.',
@@ -80,6 +82,7 @@ export const projects = [
     client: 'AlwaysPaid & Deadly Soul',
     kind: 'Shopify storefront · 3D',
     filter: 'commerce',
+    platform: 'web',
     color: '#e3245a',
     dark: true,
     line: 'Two streetwear brands, one world. A game-like "choose your side" storefront with a 3D hoodie you can spin.',
@@ -109,6 +112,7 @@ export const projects = [
     client: 'Our product',
     kind: 'iOS app',
     filter: 'app',
+    platform: 'mobile',
     color: '#0e5a3a',
     dark: true,
     line: "A daily companion for Qur'an, prayer times, Qibla, adhkar and duas, live on the App Store.",
@@ -139,6 +143,7 @@ export const projects = [
     client: 'NoūrAesthetica, Sydney',
     kind: 'Clinic website',
     filter: 'web',
+    platform: 'web',
     color: '#1b1714',
     line: 'A quiet, tactile site for a Sydney skin practice that treats the root cause.',
     intro:
@@ -167,6 +172,7 @@ export const projects = [
     client: 'A/P × Deadly Soul',
     kind: 'Shopify storefront · Editorial',
     filter: 'commerce',
+    platform: 'web',
     color: '#ff5a00',
     line: 'A loud, orange, editorial take on the same drop: one hero product, full volume.',
     intro:
@@ -195,6 +201,7 @@ export const projects = [
     client: 'Sarah Bouarroudj, Strasbourg',
     kind: 'Creative portfolio',
     filter: 'web',
+    platform: 'web',
     color: '#3f9b3a',
     line: 'Three lanyards, three disciplines: a playful portfolio for a Strasbourg photographer and videographer.',
     intro:
@@ -219,12 +226,14 @@ export const projects = [
   },
 ];
 
+// Work page filter chips. `/work?f=<id>` opens the page with that chip selected
+// (the header's Web and Mobile links use this).
 export const filters = [
-  { id: 'all', label: 'All' },
-  { id: 'web', label: 'Websites' },
-  { id: 'product', label: 'Products' },
-  { id: 'commerce', label: 'Commerce' },
-  { id: 'app', label: 'Apps' },
+  { id: 'all', label: 'All', match: () => true },
+  { id: 'web', label: 'Web', match: (p) => p.platform === 'web' },
+  { id: 'mobile', label: 'Mobile', match: (p) => p.platform === 'mobile' },
+  { id: 'commerce', label: 'Commerce', match: (p) => p.filter === 'commerce' },
+  { id: 'product', label: 'Our products', match: (p) => p.client === 'Our product' },
 ];
 
 export const services = [
