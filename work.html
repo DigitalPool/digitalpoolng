@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- @include head -->
+  <title>Work · DigitalPool</title>
+  <meta name="description" content="Selected work by DigitalPool: 3D brand experiences, SaaS products, Shopify storefronts, apps and portfolios." />
+  <link rel="canonical" href="https://digitalpoolng.com/work" />
+  <meta property="og:title" content="Work · DigitalPool" />
+  <meta property="og:url" content="https://digitalpoolng.com/work" />
+  <script type="module" src="/src/pages/work.js"></script>
+</head>
+<body data-page="work">
+  <!-- @include overlays -->
+  <!-- @include header -->
+  <main id="main">
+    <section class="page-head wrap">
+      <span class="eyebrow" data-reveal>Selected projects</span>
+      <h1 class="h1" style="margin-top:24px" data-split>Work that<br />made <em>waves</em><sup id="count">07</sup></h1>
+      <div class="page-head__row" data-reveal>
+        <div class="chips" id="filters" role="tablist" aria-label="Filter projects"></div>
+        <div class="view-toggle" role="group" aria-label="View">
+          <button type="button" class="is-active" data-view="grid">Grid</button>
+          <button type="button" data-view="list">List</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" style="padding-bottom:clamp(60px,10vw,160px)">
+      <div class="grid" id="grid"></div>
+      <div class="wl" id="list" hidden></div>
+    </section>
+
+    <div class="mq" data-marquee aria-hidden="true">
+      <div class="mq__track"><span class="mq__item">Your project <em>next</em> <i></i> Your project <em>next</em> <i></i></span></div>
+    </div>
+  </main>
+  <!-- @include footer -->
+  <div class="hp" aria-hidden="true"><div class="hp__inner"></div></div>
+</body>
+</html>

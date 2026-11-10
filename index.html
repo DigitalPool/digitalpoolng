@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- @include head -->
+  <title>DigitalPool · Creative technology studio</title>
+  <meta name="description" content="DigitalPool is a creative technology studio from Nigeria. We design and engineer immersive 3D websites, products, apps, graphics and motion for brands that want to make waves." />
+  <link rel="canonical" href="https://digitalpoolng.com/" />
+  <meta property="og:title" content="DigitalPool · Creative technology studio" />
+  <meta property="og:description" content="Immersive 3D websites, products, apps, graphics and motion." />
+  <meta property="og:url" content="https://digitalpoolng.com/" />
+  <script type="module" src="/src/pages/home.js"></script>
+</head>
+<body data-page="home">
+  <!-- @include overlays -->
+  <!-- @include header -->
+
+  <main id="main">
+    <!-- HERO: the pool -->
+    <section class="hero" aria-label="Intro">
+      <canvas class="hero__gl" id="pool" aria-label="Interactive 3D pool. Move to stir the water, click to splash, drag the objects." role="img"></canvas>
+      <div class="hero__top mono" data-hero-fade>
+        <span class="hero__hint"><i></i><span>Move to stir · click to splash · drag the objects</span></span>
+        <span>Creative technology studio ©2026</span>
+      </div>
+      <div class="hero__inner">
+        <h1 class="hero__title display" data-split="manual" id="heroTitle">
+          Digital that<br />makes <em>waves</em>
+        </h1>
+        <div class="hero__side" data-hero-fade>
+          <p>We're a studio of designers and engineers making immersive websites, products and motion that people feel, not just scroll past.</p>
+          <a class="pill pill--lg" href="/work" data-magnetic><span>See the work</span> <span class="arrow">→</span></a>
+          <span class="hero__scroll mono"><span></span>Scroll</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- REEL -->
+    <section class="reel" id="reel" aria-label="Showreel">
+      <div class="reel__sticky">
+        <div class="reel__frame" id="reelFrame" data-cursor="Play reel">
+          <video id="reelVideo" muted loop playsinline preload="metadata" poster="/assets/video/reel-poster.jpg">
+            <source src="/assets/video/reel-sm.mp4" type="video/mp4" media="(max-width: 860px)" />
+            <source src="/assets/video/reel.mp4" type="video/mp4" />
+          </video>
+          <button class="reel__play" type="button" id="reelPlay" data-magnetic="0.4" aria-label="Play the showreel">
+            <span><svg viewBox="0 0 16 18" fill="currentColor" aria-hidden="true"><path d="M0 0l16 9-16 9z" /></svg>Play reel</span>
+          </button>
+        </div>
+        <div class="reel__labels" aria-hidden="true"><span>Show</span><span>reel</span></div>
+      </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="section wrap intro">
+      <div class="intro__grid">
+        <div class="intro__meta">
+          <span class="eyebrow" data-reveal>The studio</span>
+          <a class="pill pill--ghost" href="/about" data-reveal data-magnetic><span>About us</span> <span class="arrow">→</span></a>
+        </div>
+        <div>
+          <p class="statement" data-fill>
+            DigitalPool is where design, code and motion pool together. We build 3D websites, products and apps for ambitious brands, and we ship our own products too.
+          </p>
+          <div class="intro__stats">
+            <div class="stat" data-reveal><b><span data-count="16">0</span><sup>+</sup></b><span>Years of design practice</span></div>
+            <div class="stat" data-reveal data-delay="0.1"><b><span data-count="2">0</span></b><span>Products of our own, live</span></div>
+            <div class="stat" data-reveal data-delay="0.2"><b><span data-count="200">0</span><sup>+</sup></b><span>Graphics &amp; motion pieces</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section class="section wrap" id="work">
+      <div class="sec-head">
+        <h2 class="h2" data-split>Selected <em>work</em></h2>
+        <a class="pill pill--ghost" href="/work" data-magnetic><span>All projects</span> <span class="arrow">→</span></a>
+      </div>
+      <div class="wl" id="workList"></div>
+    </section>
+
+    <div class="mq" data-marquee aria-hidden="true">
+      <div class="mq__track">
+        <span class="mq__item">3D web <i></i> Products <i></i> <em>Apps</em> <i></i> UI/UX <i></i> Graphics <i></i> <em>Motion</em> <i></i></span>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section class="section wrap">
+      <div class="sec-head">
+        <h2 class="h2" data-split>What we <em>do</em></h2>
+        <p class="lead" data-reveal>Strategy, design and engineering under one roof, so the idea survives all the way to launch.</p>
+      </div>
+      <div class="svc" id="services"></div>
+    </section>
+
+    <!-- GRAPHICS RAIL -->
+    <section class="rail" id="rail" aria-label="Graphic design">
+      <div class="rail__sticky">
+        <div class="rail__head wrap">
+          <h2 class="h2" data-split>From the <em>archive</em></h2>
+          <a class="pill pill--ghost" href="/graphics" data-magnetic><span>Explore graphics</span> <span class="arrow">→</span></a>
+        </div>
+        <div class="rail__track" id="railTrack"></div>
+      </div>
+    </section>
+
+    <!-- MOTION -->
+    <section class="section wrap">
+      <div class="sec-head">
+        <h2 class="h2" data-split>In <em>motion</em></h2>
+        <a class="pill pill--ghost" href="/motion" data-magnetic><span>All motion</span> <span class="arrow">→</span></a>
+      </div>
+      <div class="mstrip" id="motionStrip" data-stagger></div>
+    </section>
+
+    <div class="mq mq--red" data-marquee="right" aria-hidden="true">
+      <div class="mq__track">
+        <span class="mq__item">Let's make <em>waves</em> <i></i> digitalpoolng@gmail.com <i></i></span>
+      </div>
+    </div>
+
+    <!-- STUDIO -->
+    <section class="section wrap">
+      <div class="studio">
+        <div>
+          <span class="eyebrow" data-reveal>Small team, deep pool</span>
+          <h2 class="h2" style="margin-top:22px" data-split>Three people.<br />Every <em>discipline.</em></h2>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:28px">
+          <div class="faces" data-reveal id="faces"></div>
+          <p class="lead" data-reveal>A creative director, a product engineer and a motion designer who work as one. You talk to the people making your project, every day.</p>
+          <a class="pill" href="/about" data-reveal data-magnetic><span>Meet the studio</span> <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- @include footer -->
+  <div class="hp" aria-hidden="true"><div class="hp__inner"></div></div>
+</body>
+</html>

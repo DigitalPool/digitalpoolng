@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- @include head -->
+  <title>Contact · DigitalPool</title>
+  <meta name="description" content="Start a project with DigitalPool. Email digitalpoolng@gmail.com or send us a brief." />
+  <link rel="canonical" href="https://digitalpoolng.com/contact" />
+  <meta property="og:title" content="Contact · DigitalPool" />
+  <meta property="og:url" content="https://digitalpoolng.com/contact" />
+  <script type="module" src="/src/pages/contact.js"></script>
+</head>
+<body data-page="contact">
+  <!-- @include overlays -->
+  <!-- @include header -->
+  <main id="main">
+    <section class="contact-hero">
+      <canvas id="pool" aria-label="Interactive pool. Click to splash." role="img"></canvas>
+      <div class="contact-hero__inner">
+        <span class="eyebrow" data-reveal>Contact</span>
+        <h1 class="contact-hero__title" style="margin-top:22px" data-split>Let's make<br /><em style="font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--red);letter-spacing:-0.02em">waves</em></h1>
+        <a class="contact-hero__mail" href="mailto:digitalpoolng@gmail.com" data-reveal data-magnetic="0.15">digitalpoolng@gmail.com</a>
+      </div>
+      <div class="wrap mono" style="position:relative;display:flex;justify-content:space-between;padding-bottom:26px;color:var(--ink-2);pointer-events:none">
+        <span class="hero__hint"><i></i><span>Click the water</span></span>
+        <span class="hero__scroll"><span></span>Send a brief</span>
+      </div>
+    </section>
+
+    <section class="section wrap" id="brief">
+      <div class="contact-grid">
+        <aside class="contact-aside">
+          <div data-reveal><h4 class="mono">Email</h4><a href="mailto:digitalpoolng@gmail.com">digitalpoolng@gmail.com</a></div>
+          <div data-reveal><h4 class="mono">Response time</h4><p>Usually within one working day.</p></div>
+          <div data-reveal><h4 class="mono">Local time</h4><p>Lagos <time class="mono" data-clock="Africa/Lagos" style="color:var(--red)"></time></p><p>Prague <time class="mono" data-clock="Europe/Prague" style="color:var(--red)"></time></p></div>
+          <div data-reveal id="fiverr" hidden><h4 class="mono">Prefer a marketplace?</h4><a href="#" target="_blank" rel="noopener">Hire us on Fiverr ↗</a></div>
+        </aside>
+        <form class="form" id="form" novalidate>
+          <h2 class="h2 form__full" data-split>Tell us about <em>it</em></h2>
+          <div class="field" data-reveal><label for="fName">Your name</label><input id="fName" name="name" autocomplete="name" required placeholder="Jane Doe" /></div>
+          <div class="field" data-reveal><label for="fEmail">Email</label><input id="fEmail" name="email" type="email" autocomplete="email" required placeholder="jane@company.com" /></div>
+          <fieldset class="field form__full" data-reveal>
+            <legend>What do you need?</legend>
+            <div class="opt" style="margin-top:10px">
+              <input type="checkbox" id="s1" name="need" value="3D website" /><label for="s1">3D website</label>
+              <input type="checkbox" id="s2" name="need" value="Web app / SaaS" /><label for="s2">Web app / SaaS</label>
+              <input type="checkbox" id="s3" name="need" value="Mobile app" /><label for="s3">Mobile app</label>
+              <input type="checkbox" id="s4" name="need" value="Shopify store" /><label for="s4">Shopify store</label>
+              <input type="checkbox" id="s5" name="need" value="UI/UX design" /><label for="s5">UI/UX design</label>
+              <input type="checkbox" id="s6" name="need" value="Branding & graphics" /><label for="s6">Branding &amp; graphics</label>
+              <input type="checkbox" id="s7" name="need" value="Motion" /><label for="s7">Motion</label>
+            </div>
+          </fieldset>
+          <fieldset class="field form__full" data-reveal>
+            <legend>Budget</legend>
+            <div class="opt" style="margin-top:10px">
+              <input type="radio" id="b1" name="budget" value="Under $2k" /><label for="b1">Under $2k</label>
+              <input type="radio" id="b2" name="budget" value="$2k–$5k" /><label for="b2">$2k–$5k</label>
+              <input type="radio" id="b3" name="budget" value="$5k–$15k" /><label for="b3">$5k–$15k</label>
+              <input type="radio" id="b4" name="budget" value="$15k+" /><label for="b4">$15k+</label>
+              <input type="radio" id="b5" name="budget" value="Not sure yet" /><label for="b5">Not sure yet</label>
+            </div>
+          </fieldset>
+          <div class="field form__full" data-reveal><label for="fMsg">The project</label><textarea id="fMsg" name="message" rows="4" placeholder="Goals, timeline, links, anything that helps."></textarea></div>
+          <div class="form__full" data-reveal style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+            <button class="pill pill--red pill--lg" type="submit" data-magnetic><span>Send the brief</span> <span class="arrow">→</span></button>
+            <span class="mono" style="color:var(--muted)">Opens your email app with everything filled in.</span>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+  <!-- @include footer -->
+</body>
+</html>

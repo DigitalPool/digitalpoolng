@@ -1,0 +1,19 @@
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#fbfbf9" />
+  <meta name="color-scheme" content="light" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta property="og:site_name" content="DigitalPool" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://digitalpoolng.com/assets/video/reel-poster.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      try {
+        if (!sessionStorage.getItem('dp-visited')) d.classList.add('is-first');
+        if (sessionStorage.getItem('dp-tx')) d.classList.add('is-tx');
+      } catch (e) {}
+    })();
+  </script>

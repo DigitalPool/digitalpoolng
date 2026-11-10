@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- @include head -->
+  <title>Case study · DigitalPool</title>
+  <meta name="description" content="A DigitalPool case study." />
+  <script type="module" src="/src/pages/case.js"></script>
+</head>
+<body data-page="case">
+  <!-- @include overlays -->
+  <!-- @include header -->
+  <main id="main">
+    <section class="case-hero wrap">
+      <div class="case-hero__top mono" data-reveal>
+        <a href="/work" class="pill pill--ghost" data-magnetic><span>← All work</span></a>
+        <span id="cIndex"></span>
+      </div>
+      <span class="eyebrow" id="cKind" data-reveal></span>
+      <h1 class="case-hero__title" id="cTitle" style="margin-top:18px"></h1>
+      <div class="case-hero__meta" id="cMeta" data-stagger></div>
+    </section>
+
+    <section class="case-cover">
+      <div class="media" data-unveil id="cCover"></div>
+    </section>
+
+    <section class="section wrap">
+      <div class="case-body">
+        <aside class="case-body__aside">
+          <span class="eyebrow" data-reveal>Overview</span>
+          <p class="lead" id="cLine" data-reveal></p>
+          <div id="cVisit" data-reveal></div>
+        </aside>
+        <div class="case-body__main">
+          <p class="statement" id="cIntro" data-fill style="max-width:none;font-size:clamp(1.6rem,3.2vw,3.2rem)"></p>
+          <div class="case-block" data-reveal><h3 class="h3">The challenge</h3><p id="cChallenge"></p></div>
+          <div class="case-block" data-reveal><h3 class="h3">Our approach</h3><p id="cApproach"></p></div>
+          <div class="case-block"><h3 class="h3" data-reveal>Highlights</h3><ol class="hl" id="cHl" data-stagger></ol></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cGallery"></section>
+
+    <a class="next" id="cNext" href="/work" data-cursor="Next">
+      <span class="next__img"><img id="cNextImg" alt="" /></span>
+      <span class="next__label mono">Next project</span>
+      <span class="next__title" id="cNextTitle"></span>
+    </a>
+  </main>
+  <!-- @include footer -->
+</body>
+</html>
